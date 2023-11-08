@@ -3,18 +3,14 @@ import React from "react";
 const Info: React.FC<any> = () => {
   return (
     <div>
-      <h1>This is info side</h1>
+      <h1>Amdahlin laista</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac diam
-        arcu. Proin a augue eu neque volutpat posuere eget id odio. Proin mattis
-        dui sed tellus interdum suscipit. Cras scelerisque dolor in mattis
-        ullamcorper. Sed nisi nibh, ornare eget sem vitae, gravida malesuada
-        enim. Praesent vel ultrices mi. Vestibulum ante ipsum primis in faucibus
-        orci luctus et ultrices posuere cubilia curae; Nunc non urna rutrum
-        tortor molestie blandit vitae eu lacus. Praesent consequat rutrum
-        laoreet. Phasellus sodales laoreet eros, at congue lectus rutrum eget.
-        Duis commodo, purus id mattis laoreet, odio nunc feugiat lectus, non
-        egestas quam leo vel ligula.
+        Amdahlin lailla pystytään arvioida teoreettisen nopeuskertoimen
+        rinnakkaistamalla ohjelma. Laki ottaa huomioon prosessorien määrän (p)
+        sekä rinnasttavan osuuden määrä (s).
+      </p>
+      <p>
+        Ambdalin lain kaava: S(p,s) = 1 / ((1-p) + p / s)
       </p>
     </div>
   );
