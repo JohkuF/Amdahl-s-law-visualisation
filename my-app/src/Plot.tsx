@@ -19,10 +19,16 @@ export const calculateLatency = (p: number, s: number): Point => {
 
 const PlotXY: React.FC<any> = () => {
   const [latencyData, setLatencyData] = useState<Latency[]>([]);
+  const [plotWidth, setPlotWidth] = React.useState(1200);
+  const [plotHeight, setPlotHeight] = React.useState(900);
 
   const pValues = [0.5, 0.7, 0.9, 0.95, 0.99]
   const sValues = [2,4,8,16,32,64]
 
+  const updatePlotSize = () => {
+    setPlotWidth(window.innerWidth * 0.65)
+    setPlotHeight(window.innerHeight * 0.80)
+  }
 
   useEffect(() => {
     const results: any = []
@@ -35,6 +41,12 @@ const PlotXY: React.FC<any> = () => {
       })
     }
     setLatencyData(results);
+
+    updatePlotSize();
+    window.addEventListener('resize', updatePlotSize);
+    return () => {
+      window.removeEventListener('resize', updatePlotSize);
+    };
   }, [])
 
   const plotData = latencyData.map(item => ({
@@ -46,8 +58,8 @@ const PlotXY: React.FC<any> = () => {
   }));
   
   const layout = {
-    width: 1200,
-    height: 900,
+    width: plotWidth,
+    height: plotHeight,
     title: 'Latenssi',
     xaxis: {
       title: 'Rinnakkaisten suorittimien lukumäärä (s)',
@@ -63,9 +75,6 @@ const PlotXY: React.FC<any> = () => {
       <Plot data={plotlyData} layout={layout} />
     </div>
     );
-  //Plotly.newPlot('myDiv', data);
-
-  //return <div id="xy-graph"></div>;
 };
 
 export default PlotXY;
