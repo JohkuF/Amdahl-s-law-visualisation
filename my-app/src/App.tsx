@@ -12,7 +12,7 @@ const Container = styled.div`
 
 const InfoDiv = styled.div`
   display: flex;
-  flex-direction: column; /* Stack the components vertically */
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   width: 30%;

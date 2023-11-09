@@ -12,7 +12,7 @@ const Calculator: React.FC = () => {
     setinputP(parseFloat(e.target.value));
   };
 
-  const sum = 1 / (1 - inputP + inputP / inputS);
+  const sum = 1 / (1 - inputP / 100 + inputP / 100 / inputS);
 
   const divStyle = {
     backgroundColor: "lightblue",
@@ -31,7 +31,7 @@ const Calculator: React.FC = () => {
         value={inputS}
         onChange={handleChangeinputS}
       />
-      <label htmlFor="p-value">Rinnastettava osuus (p):</label>
+      <label htmlFor="p-value">Rinnastettava osuus (p) %:</label>
       <input
         id="p-value"
         type="number"
